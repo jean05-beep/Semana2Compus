@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:insert="~{fragments/header :: header}"></div>
+	<br>
+	<div class="container mb-5">
+		<div class="container mb-5">
+			<div th:if="${message != null}" class="alert alert-sucess alert-dismissible fade show text-center message">
+				[[${message}]]
+				<button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Cerrar">
+					<span aria-hiden="true">X</span>
+				</button>
+			</div>
+		</div>
+		
+	</div>
+	<div class ="container">
+		<h1>Listado De Cursos</h1>
+		<table class ="table table-haver table-responsive-xl">
+			<thead class ="thead-light">
+				<tr>
+					<th>ID</th>
+					<th>Procesador</th>
+					<th>Memoria</th>
+					<th>Disco Duro</th>
+					<th></th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr th:each="computadora : ${compmutadora}">
+				<td>[[${computadora.id}]]</td>
+				<td>[[${computadora.procesador}]]</td>
+				<td>[[${computadora.ram}]]</td>
+				<td>[[${computadora.discoDuro}]]</td>
+			</tr>
+		</tbody>	
+		</table>
+	</div>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
